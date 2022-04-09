@@ -30,6 +30,11 @@ const Main = ({ query, setQuery }: any) => {
             onChange={(e) => {
               setQuery(e.target.value);
             }}
+            onKeyPress={(e) => {
+              if (e.key === "Enter") {
+                handleSearch();
+              }
+            }}
           />
         </div>
         <div>

@@ -84,6 +84,11 @@ const Results = ({ search, setSearch, query }: any) => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="block w-full border border-gray-300 rounded-full py-2 sm:py-3 pl-8 hover:shadow-around focus:shadow-around focus:ring-0 focus:border-0 focus-visible:outline-none"
+            onKeyPress={(e) => {
+              if (e.key === "Enter") {
+                handleSearch();
+              }
+            }}
           />
           <div className="absolute inset-y-0 right-0 pr-8 sm:pr-4 items-center flex">
             <span
@@ -184,6 +189,7 @@ const Results = ({ search, setSearch, query }: any) => {
                 <>
                   {rows.map((o, i) => (
                     <div
+                      key={`o${i}`}
                       className={`inline px-0 mx-0 flex flex-col w-max items-center ${
                         currentPage === p + currentPage
                           ? ""
