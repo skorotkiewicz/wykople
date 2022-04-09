@@ -122,14 +122,12 @@ const Results = ({ search, setSearch, query }: any) => {
                 {results.map(
                   (res: { link: string; title: string; snippet: string }) => (
                     <div key={(ikey = ikey + 1)}>
-                      {/* <h3> */}
                       <a href={res.link} className="text-link-blue text-xl">
                         {res.title
                           .replace(" - Wykop.pl", "")
                           .replace("w Wykop.pl", "")
                           .replace("- Wykop", "")}
                       </a>
-                      {/* </h3> */}
                       <p>{res.snippet}</p>
                     </div>
                   )
@@ -152,7 +150,6 @@ const Results = ({ search, setSearch, query }: any) => {
       </div>
 
       {/* Footer */}
-
       {!isLoading && (
         <div className="max-w-screen sm:max-w-2xl px-4 sm:px-0 sm:ml-48 mt-20 mb-36 text-gray-800">
           <h1 className="font-medium text-3xl font-title mx-8 flex w-max mx-auto">
