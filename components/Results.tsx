@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import SearchIcon from "./SearchIcon.tsx";
 import ChevronRightIcon from "./ChevronRightIcon.tsx";
 import ChevronLeftIcon from "./ChevronLeftIcon.tsx";
@@ -14,6 +14,7 @@ const Results = ({ search, setSearch, query }: any) => {
   const hasPrev = currentPage >= 1 ? true : false;
   const hasNext = true;
   const error: {} | null | undefined = [];
+  const textInputRef = useRef<any>();
   let ikey = 0;
 
   useEffect(() => {
@@ -40,6 +41,7 @@ const Results = ({ search, setSearch, query }: any) => {
 
   const handleSearch = () => {
     if (search) {
+      textInputRef.current.blur();
       setIsLoading(true);
 
       redirect(
@@ -78,6 +80,7 @@ const Results = ({ search, setSearch, query }: any) => {
 
         <div className="relative block max-w-screen px-4 sm:px-0 w-[35rem]">
           <input
+            ref={textInputRef}
             autoFocus
             type="text"
             name="query"
